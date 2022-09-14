@@ -30,7 +30,7 @@ The sections below highlight the approach towards writing Python script to obtai
 
 ## Election Audit Results
 
-* Votes cast in the Colorado congressional election
+* ### Votes cast in the Colorado congressional election
 
 When calculating total votes cast in the election, we need to first initialize a variable and equate it to 0.
 
@@ -42,7 +42,7 @@ It is also worth noting to use `headers = next(file_reader)` statement to skip t
 
 Once we run the code and use the `print` statement, we will get the total vote count output as 369,711 votes.
 
-* Breakdown of vote count and vote percentage by county
+* ### Breakdown of vote count and vote percentage by county
 
 Once we have obtained the total number of votes cast in the election, one of the key outputs is to determine the vote count and percentage by participating counties within the overall vote.
 
@@ -54,6 +54,7 @@ Once declared, the next step was to create a key for the unique counties.
 
 The following code needs to be executed inside an `if` statement. This is done to initiate each county as a key.
 
+```
 #Get the county name from each row.
         `county_name = row[1]`
 
@@ -68,17 +69,21 @@ The following code needs to be executed inside an `if` statement. This is done t
 
 #Add a vote to that counties count
         `county_votes[county_name] += 1`
+```
 
 We need to ensure proper indents are used in the above scenario in order for the code to run correctly. 
 
 Once we run the code and use the `print` statement, we will get the county vote output as follows;
 
 Jefferson: 10.5% (38,855)
+
 Denver: 82.8% (306,055)
+
 Arapahoe: 6.7% (24,801)
 
 To obtain vote percentages, the following block of code was used to obtain the percentage output;
 
+```
 `for county_name in county_votes:`
         # Retrieve the county vote count.
         `county = county_votes.get(county_name)`
@@ -86,13 +91,16 @@ To obtain vote percentages, the following block of code was used to obtain the p
         `county_percentage = float(county) / float(total_votes) * 100`
         # Print results as;
         `county_results = (f"{county_name}: {county_percentage:.1f}% ({county:,})\n")`
+```
 
-* County with the largest vote count
+* ### County with the largest vote count
 
 To identify the largest county of the election, first we declared the following variables and assigned them appropriate values;
 
 `largest_county = ""`           - declare variable holding an empty string
+
 `winning_county = 0`            - declare variable equal to 0 for winning county
+
 `winning_county_percentage = 0` - declare variable equal to 0 for winning county percentage
 
 Once the variables were declared, an if statement is required to obtain the winning county and its vote count.
@@ -104,7 +112,7 @@ Once the variables were declared, an if statement is required to obtain the winn
 
 We can use the `print` statement to get the declaration of the largest county within an f-string.
 
-* Breakdown of vote count and vote percentage by running candidate
+* ### Breakdown of vote count and vote percentage by running candidate
 
 One of the key outputs is to determine the vote count and percentage by running candidates within the overall vote.
 
@@ -149,7 +157,7 @@ To obtain vote percentages, the following block of code was used to obtain the p
         `vote_percentage = float(votes) / float(total_votes) * 100`
         `candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")`
 
-* Election data of winning candidate
+* ### Election data of winning candidate
 
 ## Summary
 
