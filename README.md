@@ -5,7 +5,7 @@
 
 ### Determining Audit Requirement
 
-The US Congressional Precinct of Colorado has carried out thier elections. Post elections, the election audit team has obtained the final csv file containing all the election results, which need to be analysed using Python to determine the election outcome.
+The US Congressional Precinct of Colorado has carried out thier congressional elections. Post elections, the election audit team has obtained the final csv file containing all election results, which need to be analysed using Python to determine the election outcome.
 
 As part of the prework leading to the requirement of finalizing the election results, the python script included code to determine the following;
 
@@ -18,10 +18,10 @@ As part of the prework leading to the requirement of finalizing the election res
 Post establishing the above, the next requirement was to determine the following;
 
 2. Identifying the list of counties where the election was held
-3. Determining each counties vote count and vote percentage
+3. Determining each county's vote count and vote percentage
 4. Identifying the largest county turnout of the election
 
-Once the Python script was written to extract the data from the csvfile, the data was required to print through the following outputs;
+Once the Python script was written to extract the data from the csv file, the data was required to print through the following outputs;
 
 1. Printing the election results to the command line
 2. Saving the election results to a text file
@@ -36,7 +36,7 @@ When calculating total votes cast in the election, we need to first initialize a
 
 This is done in the PyPoll_Challenge script using the following code: `total_votes = 0`
 
-Once created the variable and intitalized to 0, the next step is to increase the variable by 1 as we iterate through the loop: `total_votes = total_votes + 1`
+Upon creating the variable and intitalizing to 0, the next step is to increase the variable by 1 as we iterate through the loop: `total_votes = total_votes + 1`
 
 It is also worth noting to use `headers = next(file_reader)` statement to skip the header row of the file.
 
@@ -44,9 +44,9 @@ Once we run the code and use the `print` statement, we will get the total vote c
 
 * ### Breakdown of vote count and vote percentage by county
 
-Once we have obtained the total number of votes cast in the election, one of the key outputs is to determine the vote count and percentage by participating counties within the overall vote.
+Once we have obtained the total number of votes cast in the election, one of the key outputs is to determine the vote count and percentage by participating county's within the overall vote.
 
-The participating list of counties were Jefferson, Denver and Arapahoe.
+The participating list of county's were Jefferson, Denver and Arapahoe.
 
 When determining the vote count by county, we first declared an empty dictionary using `county_votes = {}`.  
 
@@ -73,7 +73,7 @@ The following code needs to be executed inside an `if` statement. This is done t
 
 We need to ensure proper indents are used in the above scenario in order for the code to run correctly. 
 
-To obtain vote percentages, the following block of code was used to obtain the percentage output;
+To obtain vote percentages, the following block of code was used;
 
 ```
 for county_name in county_votes:
@@ -115,11 +115,22 @@ if (county > winning_county) and (county_percentage > winning_county_percentage)
             winning_county_percentage = county_percentage
 ```
 
-We can use the `print` statement to get the declaration of the largest county within an f-string.
+We can use the `print` statement to get the declaration of the largest county within an f-string as follows;
+
+```
+    # 7: Print the county with the largest turnout to the terminal.
+    winning_county_summary = (
+        f"\n-------------------------\n"
+        f"Largest County Turnout:{largest_county}\n"  
+        f"-------------------------\n\n")
+    print(winning_county_summary)
+```
+
+The following output should print: Largest County Turnout:Denver
 
 * ### Breakdown of vote count and vote percentage by running candidate
 
-One of the key outputs is to determine the vote count and percentage by running candidates within the overall vote.
+Further, we needed to determine the vote count and percentage by running candidates within the overall vote.
 
 The participating list of candidates were Charles Casper Stockham, Diana DeGette and Raymon Anthony Doane.
 
@@ -178,7 +189,7 @@ Finally to determine the winning candidate of the election, first we declared th
 
 `winning_percentage = 0` - declare variable equal to 0 for winning county percentage
 
-Once the variables were declared, an if statement is required to obtain the winning county and its vote count.
+Once the variables are declared, an if statement is required to obtain the winning county and its vote count.
 
 ```
 if (votes > winning_count) and (vote_percentage > winning_percentage):
@@ -189,9 +200,47 @@ if (votes > winning_count) and (vote_percentage > winning_percentage):
 
 We can use the `print` statement to get the declaration of the largest county within an f-string.
 
+```
+    # Print the winning candidate (to terminal)
+    winning_candidate_summary = (
+        f"\n-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_candidate_summary)
+```
+By executing the above code, we can obtain the following output;
+
+Winner: Diana DeGette
+
+Winning Vote Count: 272,892
+
+Winning Percentage: 73.8%
 
 ## Summary
 
-### Refactoring Script - Run for any election
+### Modifying Python Script
+
+Python is a versatile data analysis tool that can be configured to suit most analytical requirements. When we set up a python script to analyze a single election outcome as demonstrated in the above analysis, we can reuse the code to apply for similar analytical requirements.
+
+* Modifying python script to run for multiple election sub-regions using Conditional Loops
+
+When setting up code to be reused, we can utilize algorithms in a repetition structure like loops, which can be run over and over again. The most suitable loop to run code for similar analytical requirement is the conditional loop and initialize  an array for which the code needs to run through. This code will allow us to execute code in repetition as long as the condition is met.
+
+For example, if we are analyzing a nation wide election result and we need to have repetititive output for results by state, we can utilize a conditional loop to obtain all results based on the state by initializng an array for all the states and looping through all states.
+
+* Modifying python script to run for multiple election years using InputBox
+
+If we want to compare our election results with past elections or future elections, we can utilize code to obtain user input into our script to gather input on which year the analysis needs to run on.
+
+This can be done by assigning the inputbox to a variable as follows;
+
+```AnalysisYear = InputBox("What year should the election analysis run?")```
+
+The above code when executed, will ask the user for which year the desired election analysis output is related to. The above modification allows an analyst to run the same script for multiple election years.
+
+
+
 
 
