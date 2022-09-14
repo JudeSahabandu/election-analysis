@@ -170,6 +170,26 @@ Raymon Anthony Doane: 3.1% (11,606)
 
 * ### Election data of winning candidate
 
+Finally to determine the winning candidate of the election, first we declared the following variables and assigned them appropriate values;
+
+`winning_candidate = ""` - declare variable holding an empty string
+
+`winning_count = 0`      - declare variable equal to 0 for winning county
+
+`winning_percentage = 0` - declare variable equal to 0 for winning county percentage
+
+Once the variables were declared, an if statement is required to obtain the winning county and its vote count.
+
+```
+if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_candidate = candidate_name
+            winning_percentage = vote_percentage
+```
+
+We can use the `print` statement to get the declaration of the largest county within an f-string.
+
+
 ## Summary
 
 ### Refactoring Script - Run for any election
