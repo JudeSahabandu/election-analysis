@@ -5,7 +5,7 @@
 
 ### Determining Audit Requirement
 
-The US Congressional Precinct of Colorado has carried out thier congressional elections. Post elections, the election audit team has obtained the final csv file containing all election results, which need to be analysed using Python to determine the election outcome.
+The US Congressional Precinct of Colorado has carried out their congressional elections. Post elections, the election audit team has obtained the final csv file containing all election results, which need to be analyzed using Python to determine the election outcome.
 
 As part of the prework leading to the requirement of finalizing the election results, the python script included code to determine the following;
 
@@ -40,7 +40,13 @@ Upon creating the variable and intitalizing to 0, the next step is to increase t
 
 It is also worth noting to use `headers = next(file_reader)` statement to skip the header row of the file.
 
-Once we run the code and use the `print` statement, we will get the total vote count output as 369,711 votes.
+Once we run the code and use the `print` statement, we will get the total vote count output as follows;
+
+```
+-------------------------
+Total Votes: 369,711
+-------------------------
+```
 
 * ### Breakdown of vote count and vote percentage by county
 
@@ -90,11 +96,13 @@ for county_name in county_votes:
 
 Once we run the code and use the `print` statement, we will get the county vote output as follows;
 
+```
 Jefferson: 10.5% (38,855)
 
 Denver: 82.8% (306,055)
 
 Arapahoe: 6.7% (24,801)
+```
 
 * ### County with the largest vote count
 
@@ -126,7 +134,11 @@ We can use the `print` statement to get the declaration of the largest county wi
     print(winning_county_summary)
 ```
 
-The following output should print: Largest County Turnout:Denver
+The following output should print: 
+
+```
+Largest County Turnout:Denver
+```
 
 * ### Breakdown of vote count and vote percentage by running candidate
 
@@ -173,11 +185,13 @@ for candidate_name in candidate_votes:
 
 Once we run the code and use the `print` statement, we will get the county vote output as follows;
 
+```
 Charles Casper Stockham: 23.0% (85,213)
 
 Diana DeGette: 73.8% (272,892)
 
 Raymon Anthony Doane: 3.1% (11,606)
+```
 
 * ### Election data of winning candidate
 
@@ -212,11 +226,13 @@ We can use the `print` statement to get the declaration of the largest county wi
 ```
 By executing the above code, we can obtain the following output;
 
+```
 Winner: Diana DeGette
 
 Winning Vote Count: 272,892
 
 Winning Percentage: 73.8%
+```
 
 ## Summary
 
