@@ -56,22 +56,37 @@ The following code needs to be executed inside an `if` statement. This is done t
 
 ```
 #Get the county name from each row.
-        `county_name = row[1]`
+        county_name = row[1]
 
 #If the county does not match any existing county add it to the county list
-        `if county_name not in county_list:`
+        if county_name not in county_list:
 
 #Add the county name to the county list.
-            `county_list.append(county_name)`
+            county_list.append(county_name)
 
 #And begin tracking that counties voter count.
-            `county_votes[county_name] = 0`
+            county_votes[county_name] = 0
 
 #Add a vote to that counties count
-        `county_votes[county_name] += 1`
+        county_votes[county_name] += 1
 ```
 
 We need to ensure proper indents are used in the above scenario in order for the code to run correctly. 
+
+To obtain vote percentages, the following block of code was used to obtain the percentage output;
+
+```
+for county_name in county_votes:
+
+        # Retrieve the county vote count.
+        county = county_votes.get(county_name)
+
+        # Calculate the percentage of votes for the county.
+        county_percentage = float(county) / float(total_votes) * 100
+
+        # Print results as;
+        county_results = (f"{county_name}: {county_percentage:.1f}% ({county:,})\n")
+```
 
 Once we run the code and use the `print` statement, we will get the county vote output as follows;
 
@@ -80,18 +95,6 @@ Jefferson: 10.5% (38,855)
 Denver: 82.8% (306,055)
 
 Arapahoe: 6.7% (24,801)
-
-To obtain vote percentages, the following block of code was used to obtain the percentage output;
-
-```
-`for county_name in county_votes:`
-        # Retrieve the county vote count.
-        `county = county_votes.get(county_name)`
-        # Calculate the percentage of votes for the county.
-        `county_percentage = float(county) / float(total_votes) * 100`
-        # Print results as;
-        `county_results = (f"{county_name}: {county_percentage:.1f}% ({county:,})\n")`
-```
 
 * ### County with the largest vote count
 
@@ -105,10 +108,12 @@ To identify the largest county of the election, first we declared the following 
 
 Once the variables were declared, an if statement is required to obtain the winning county and its vote count.
 
-`if (county > winning_county) and (county_percentage > winning_county_percentage):`
-            `winning_county = county`
-            `largest_county = county_name`
-            `winning_county_percentage = county_percentage`
+```
+if (county > winning_county) and (county_percentage > winning_county_percentage):
+            winning_county = county
+            largest_county = county_name
+            winning_county_percentage = county_percentage
+```
 
 We can use the `print` statement to get the declaration of the largest county within an f-string.
 
@@ -124,38 +129,44 @@ Once declared, the next step was to create a key for the unique candidates.
 
 The following code needs to be executed inside an `if` statement. This is done to initiate each candidate as a key.
 
+```
 #Get the candidate name from each row.
-        `candidate_name = row[2]`
+        candidate_name = row[2]
 
 #If the candidate does not match any existing candidate add it to
 #the candidate list
-        `if candidate_name not in candidate_options:`
+        if candidate_name not in candidate_options:
 
 #Add the candidate name to the candidate list.
-            `candidate_options.append(candidate_name)`
+            candidate_options.append(candidate_name)
 
 #And begin tracking that candidate's voter count.
-            `candidate_votes[candidate_name] = 0`
+            candidate_votes[candidate_name] = 0
 
 #Add a vote to that candidate's count
-        `candidate_votes[candidate_name] += 1`
+        candidate_votes[candidate_name] += 1
+```
 
 We need to ensure proper indents are used in the above scenario in order for the code to run correctly. 
+
+To obtain vote percentages, the following block of code was used to obtain the percentage output;
+
+```
+for candidate_name in candidate_votes:
+
+#Retrieve vote count and percentage
+        votes = candidate_votes.get(candidate_name)
+        vote_percentage = float(votes) / float(total_votes) * 100
+        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+```
 
 Once we run the code and use the `print` statement, we will get the county vote output as follows;
 
 Charles Casper Stockham: 23.0% (85,213)
+
 Diana DeGette: 73.8% (272,892)
+
 Raymon Anthony Doane: 3.1% (11,606)
-
-To obtain vote percentages, the following block of code was used to obtain the percentage output;
-
-`for candidate_name in candidate_votes:`
-
-#Retrieve vote count and percentage
-        `votes = candidate_votes.get(candidate_name)`
-        `vote_percentage = float(votes) / float(total_votes) * 100`
-        `candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")`
 
 * ### Election data of winning candidate
 
